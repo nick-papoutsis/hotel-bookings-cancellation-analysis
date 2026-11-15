@@ -75,7 +75,7 @@ Built PivotTables for each business question and connected hotel and year slicer
 - Bookings requiring a parking space showed a 0% cancellation rate, likely because the field is only recorded for guests who arrive, so it was not used as a finding
 
 ## How to use this repo
--Open `data/hotel_bookings_raw.csv` to see the original raw dataset.
+- Open `data/hotel_bookings_raw.csv` to see the original raw dataset.
 - Open `excel/hotel_bookings_clean.xlsx` to explore the PivotTables and the Dashboard.
 
 ## Author
