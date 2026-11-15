@@ -4,7 +4,11 @@
 
 *An end-to-end analysis of 87,224 hotel bookings, identifying which bookings are most likely to cancel and estimate the revenue at risk.*
 
+**Overview**
+![Overview Dashboard](images/dashboard_overview.png)
 
+**Cancellation Drivers**
+![Cancellation Drivers Dashboard](images/dashboard_drivers.png)
 
 
 ## Business Question
@@ -39,6 +43,8 @@ Excel (Power Query, PivotTables, PivotCharts, slicers).
 
 **Row count:** 119,390 raw, then **87,224** final.
 **Deliberately kept:** bookings with `adr` = 0 and `total_nights` = 0, since they aren't clearly invalid.
+
+The full M Code is in [`power_query/hotel_bookings_clean.pq`](power_query/hotel_bookings_clean.pq).
 
 
 
