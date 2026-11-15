@@ -29,7 +29,7 @@ Excel (Power Query, PivotTables, PivotCharts, slicers).
 |---|---|---|
 | Trimmed and cleaned text columns | Removed leading, trailing spaces and non-printable characters from all text columns | Prevents values like "Resort Hotel  " and "Resort Hotel" from being treated as different values, which would split pivot categories and hide duplicate rows. Done before removing duplicates for that reason |
 | Removed duplicates | Removed duplicate rows | Removed repeated rows, keeping one copy of each to avoid skewness in PivotTables and PivotCharts |
-| Dropped columns | Removed unnecessary columns | (arrival_date_week_number) removed because of redunduncy in dates, (company) removed because most of the values were missing, (reservation_status) removed for data leakage purposes in possible future cancellation prediction  |
+| Dropped columns | Removed unnecessary columns | (arrival_date_week_number) removed because of redundancy in dates, (company) removed because most of the values were missing, (reservation_status) removed for data leakage purposes in possible future cancellation prediction  |
 | Merged columns | Combined all columns indicating dates to one | (arrival_date_year), (arrival_date_month), (arrival_date_day_of_month) were merged into one column called (arrival_date) |
 | Text placeholders | `NULL` and `NA` converted to real values | The file stores missing values as text |
 | `children` | `NA` replaced with 0 | Missing means no children |
@@ -57,14 +57,14 @@ Built PivotTables for each business question and connected hotel and year slicer
 ## Key Findings
 - **Overall:** 27.5% of bookings were cancelled.
 - **Lead time is the strongest signal:** cancellation rises from 8.4% within a week to 39.7% at 180+ days.
-- **Online TA:** the largest channel (59% of bookings), cancelling at 35.4% against 12-15% for Corporate, Direct and Offline TA/TO. ~81% of estimated revenue lost.
-- **Special requests:** 33.3% with none, falling to 10.6% within 4 requests.
+- **Online TA:** the largest channel (59% of bookings), cancelling at 35.4% against 12-15% for Corporate, Direct and Offline TA/TO. It accounts for about 81% of estimated revenue lost.
+- **Special requests:** 33.3% with none, falling to 10.6% with 4 requests.
 - **Hotel:** the city hotel cancels more (30.1%) than the resort hotel (23.5%).
 - **Customer type:** transient bookings cancel at 30.1%, group bookings at 9.8%.
-- **Previous cancellations:** guests with one prior cancellation cancelled at 76.1% (1,405 bookings).
+- **Previous cancellations:** guests with one prior cancellation cancelled at 76.2% (1,405 bookings).
 
 ## Recommendations (hypotheses to test)
-1. Long led (over 30 days) Online TA bookings with no special requests might be the best group for deposit reconfirmation messages.
+1. Long led (over 30 days) Online TA bookings with no special requests might be the best group for deposits or reconfirmation messages.
 2. Flag guests with a previous cancellation as a high-risk group.
 3. Any new cancellation policy should target Transient guests (71,861 bookings, with 30% cancellation rate).
 
@@ -72,9 +72,11 @@ Built PivotTables for each business question and connected hotel and year slicer
 - Revenue figures are estimates (no currency or actual payment data),
 - Non-refundable bookings show a 94.7% cancellation rate on 1,038 bookings (city hotel: 97.2% on 845; resort hotel 83.9% on 193), the opposite of what's expected.
 - Only 2 seasons of data, so seasonal claims are tentative.
+- Bookings requiring a parking space showed a 0% cancellation rate, likely because the field is only recorded for guests who arrive, so it was not used as a finding
 
 ## How to use this repo
-- Open `excel/hotel_bookings_clean.xlsx` to explore the PivotTables and the Dashboard
+-Open `data/hotel_bookings_raw.csv` to see the original raw dataset.
+- Open `excel/hotel_bookings_clean.xlsx` to explore the PivotTables and the Dashboard.
 
 ## Author
 Nick Papoutsis | www.linkedin.com/in/nick-papoutsis
